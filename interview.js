@@ -42,6 +42,20 @@ async function distributePoints() {
     }
   }
 
+  class Node{
+    data;
+    right;
+    left
+    constructor(data,right,left){
+        data =  this.data;
+        right = this.right;
+        left = this.left;
+    }
+
+
+
+  }
+
 
 
 

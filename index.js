@@ -7,6 +7,7 @@ const {Server} = require('socket.io');
 const bodyParser = require('body-parser')
 const app = express();
 const server = http.createServer(app);
+const limiter = require('./Middleware/limiter/limiter');  
 
 
 
@@ -15,6 +16,8 @@ app.use(bodyParser.json())
 app.use(cors({
     origin:'*'
 }));
+
+app.use(limiter);
 
 const DB = require('./Config/mongoDb/mongoDb')
 try{
