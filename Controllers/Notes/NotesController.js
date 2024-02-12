@@ -1,5 +1,4 @@
 const Notes = require('../../Models/PersonalNotes/Note'); 
-const Table = require('../../Models/Tables/table');
 
 const createNote = async(req,res)=>{
     try{
@@ -35,10 +34,8 @@ const updateNote = async (data)=>{
 const getNotes = async(req,res)=>{
     try{
         const email  =  req.body.email;
-        const  notes = await Notes.find({email:email});
-        const tables = await Table.find({email:email});
-        const data = notes.concat(tables).sort({updatedAt:1});
-        res.send(data.reverse())
+        const  notes = await Notes.find({email:email}).sort({updatedAt:1});
+        res.send(notes.reverse())
     }
     catch(err){
         console.log(err);
