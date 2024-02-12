@@ -35,9 +35,9 @@ const updateNote = async (data)=>{
 const getNotes = async(req,res)=>{
     try{
         const email  =  req.body.email;
-        const  notes = await Notes.find({email:email}).sort({updatedAt: 1 });
-        const tables = await Table.find({email:email}).sort({updatedAt:1});
-        const data = notes.concat(tables);
+        const  notes = await Notes.find({email:email});
+        const tables = await Table.find({email:email});
+        const data = notes.concat(tables).sort({updatedAt:1});
         res.send(data.reverse())
     }
     catch(err){
