@@ -18,6 +18,17 @@ const  createTable  = async(req,res)=>{
     }
 };
 
+const getTable =  async(req,res)=>{
+    try{
+        const email = req.body.email
+        const  tables = await Table.find({email:email}).sort({updatedAt:1});
+        res.send(tables.reverse())
+    }
+    catch(err){
+        console.log(err.message)
+    }
+};
+
 const deleteTable = async(req,res)=>{
     try{
         const id = req.body.id;
@@ -32,5 +43,6 @@ const deleteTable = async(req,res)=>{
 }
 module.exports={
     createTable,
-    deleteTable
+    deleteTable,
+    getTable,
 }

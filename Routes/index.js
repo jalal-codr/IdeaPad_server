@@ -16,6 +16,7 @@ router.put('/getNote',noteRoutes);
 
 //table routes
 router.post('/create-table',tableRoutes);
+router.post('/get-tables',tableRoutes)
 router.put('/delete-table',tableRoutes);
 
 module.exports = router;
